@@ -1,0 +1,57 @@
+{% extends "phrases/base.html" %}
+{% block content %}
+
+    <h1>Quiz Game</h1>
+    {% for phrase in phrases %}
+    <h1>{{ phrase.phrase }}</h1>
+    <p>{{ phrase.category }}</p>
+    {% endfor %}
+    <br>
+    <form action="/addAnswer/" method="post">{% csrf_token %}
+      <input type="text" name="content" autofocus="autofocus"/>
+      <input type="submit" value="Add">
+      </form>
+
+{% endblock content %}
+
+
+
+
+<!------- OLD MAIN CONTENT
+<div class="row">
+  <div class="column side">
+    <h2>Side</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique.</p>
+  </div>
+
+  <div class="column middle">
+    <h2>Main Content</h2>
+    <p>Sociality Phrases application ALPHA v0.2 Django web framework</p>
+      <br>
+      <p>
+      Input text here:
+      </p>
+      <form class="answerform" action="/addPhrase/" method="post">{% csrf_token %}
+        <input type="text" name="content" autofocus="autofocus" />
+        <input type="submit" value="Add">
+        </form>
+  </div>
+
+ <div class="column side">
+    <h2>Side</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique.</p>
+  </div>
+ </div>
+
+  <ul>
+    {% for phrases_item in all_items %}
+      <li>{{ phrases_item.content }}
+        <form action="/deleteTodo/{{todo_item.id}}/"
+              style="display: inline;"
+              method="post">{% csrf_token %}
+          <input type="submit" value="Delete">
+          </form>
+        </li>
+    {% endfor %}
+  </ul>
+------->
