@@ -2,11 +2,13 @@
 {% block content %}
 
     <h1>Quiz Game</h1>
-    {% for phrase in phrases %}
-    <h1>{{ phrase.phrase }}</h1>
-    <p>{{ phrase.category }}</p>
-    {% endfor %}
-    <br>
+<br>
+<!-- Code to get question from database
+
+-->
+<p>Quiz Question from database goes here.</p>
+<br>
+<br>
     <form action="/addAnswer/" method="post">{% csrf_token %}
       <input type="text" name="content" autofocus="autofocus"/>
       <input type="submit" value="Add">
