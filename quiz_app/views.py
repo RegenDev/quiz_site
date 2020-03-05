@@ -6,4 +6,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 def FrontPageView(request):
 	return render(request, 'home.html')
-     #return HttpResponse("Hello, world. You're at the polls index.")
+
+def AboutView(request):
+	return render(request, 'about.html')
+
+def QuizView(request):
+	return render(request, 'quiz.html')

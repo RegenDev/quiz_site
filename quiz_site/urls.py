@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from quiz_app import views
 from quiz_app.views import FrontPageView
-
+from quiz_app.views import AboutView
+from quiz_app.views import QuizView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-#    path('about/', AboutView),
-#    path('quiz/', QuizView),
+    path('about/', AboutView),
+    path('quiz/', QuizView),
     path('', FrontPageView),
 ]
