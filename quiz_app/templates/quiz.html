@@ -9,7 +9,15 @@
 <p>Quiz Question from database goes here.</p>
 <br>
 <br>
-    <form action="/addAnswer/" method="post">{% csrf_token %}
+
+<ul>
+{% for question in questions %}
+    <li>{{ question.question_text }}</li>
+{% endfor %}
+</ul>
+<br>
+<br>
+    <form action="/QuizView/" method="post">{% csrf_token %}
       <input type="text" name="content" autofocus="autofocus"/>
       <input type="submit" value="Add">
       </form>
