@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Question
+from .models import QuizTip
 
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
@@ -10,9 +12,9 @@ def FrontPageView(request):
 def AboutView(request):
 	return render(request, 'about.html')
 
-def QuizView(request, question_id):
-	questions = get_object_or_404(Question, pk=question_id)
-	return render(request, 'quiz.html', {'question': question})
+def QuizView(request):
+	questions = Question.objects.all()
+	return render(request, 'quiz.html', locals())
 
 #MORE VIEWS
 #----Game Categories

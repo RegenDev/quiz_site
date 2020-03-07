@@ -10,6 +10,21 @@
 <br>
 <br>
 
+<table>
+    <tr>
+        <th>Field 1</th>
+        ...
+        <th>Field N</th>
+    </tr>
+    {% for question in questions %}
+    <tr>
+        <td>{{ question.field1 }}</td>
+        ...
+        <td>{{ question.fieldN }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
 <ul>
 {% for question in questions %}
     <li>{{ question.question_text }}</li>
