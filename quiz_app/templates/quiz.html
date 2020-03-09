@@ -1,41 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h1>Quiz Game</h1>
-<br>
-<!-- Code to get question from database
+<script>
+    function call_counter(url, pk) {
+        window.open(url);
+        $.get('YOUR_VIEW_HERE/'+pk+'/', function (data) {
+            alert("counter updated!");
+        });
+    }
+</script>
 
--->
+<h1>Quiz Game</h1>
+<br>
+<!-- Code to get question from database-->
 <p>Quiz Question from database goes here.</p>
-<br>
-<br>
 
-<table>
-    <tr>
-        <th>Field 1</th>
-        ...
-        <th>Field N</th>
-    </tr>
-    {% for question in questions %}
-    <tr>
-        <td>{{ question.field1 }}</td>
-        ...
-        <td>{{ question.fieldN }}</td>
-    </tr>
-    {% endfor %}
-</table>
+<h2>{{ question_text }}</h2>
+
+<br>
+<br>
 
 <ul>
 {% for question in questions %}
     <li>{{ question.question_text }}</li>
 {% endfor %}
 </ul>
+
+
 <br>
 <br>
     <form action="/QuizView/" method="post">{% csrf_token %}
       <input type="text" name="content" autofocus="autofocus"/>
       <input type="submit" value="Add">
       </form>
+
+<!-- NOTE: Custom javascript button -->
+<button onclick="call_counter('http://www.google.com', 12345);">
+    I update object 12345
+</button>
+<button onclick="call_counter('http://www.yahoo.com', 999);">
+    I update object 999
+</button>
+
 
 {% endblock content %}
 

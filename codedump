@@ -1,0 +1,39 @@
+import random
+
+phrases = []
+answers = []
+
+# open phrasefile and read the content in a list
+with open('phraselist.txt', 'r') as filehandle:
+    for line in filehandle:
+        # remove linebreak which is the last character of the string
+        currentPhrase = line[:-1]
+        # add item to the list
+        phrases.append(currentPhrase)
+
+
+
+#Core while loop
+#----------------------------------
+loop = 3
+while loop > 0:
+
+    print(60 * '-')
+    print('Challenge yourself')
+    print('Challenge ', loop,'/25')
+    print(60 * '-')
+    print(random.choice(phrases))
+    print("""
+
+    """)
+
+
+
+    answer = input('Answer:')
+    answers.append(answer)
+    loop -= 1
+
+
+with open('answerlist.txt', 'w') as filehandle:
+    for listitem in answers:
+        filehandle.write('%s\n' % listitem)
